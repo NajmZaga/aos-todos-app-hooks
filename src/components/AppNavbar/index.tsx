@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
 
@@ -14,10 +15,10 @@ import {
 } from 'reactstrap';
 
 interface IAppNavbarProps {
-
+  isAuthorized?: boolean;
 }
 
-export const AppNavbar: React.FC<IAppNavbarProps> = () => {
+export const AppNavbar: React.FC<IAppNavbarProps> = ({ isAuthorized }) => {
 
   return (
     <Navbar color="light" light expand="md">
@@ -26,14 +27,19 @@ export const AppNavbar: React.FC<IAppNavbarProps> = () => {
       <Collapse navbar>
         <Nav className="me-auto" navbar>
           <NavItem>
-            <NavLink href="/components/">Home</NavLink>
+            <NavLink href="#">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="https://github.com/reactstrap/reactstrap">Tâches</NavLink>
+            <Link to="/">Tâches</Link>
           </NavItem>
-          <NavItem>
-            <NavLink href="#">Déconnexion</NavLink>
-          </NavItem>
+          {
+            isAuthorized && (
+              <NavItem>
+                <NavLink href="#">Déconnexion</NavLink>
+              </NavItem>
+            )
+          }
+
         </Nav>
       </Collapse>
     </Navbar>

@@ -7,7 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar-nav a {
+  color: inherit;
+  padding: 0.5rem 1rem;
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.navbar-nav a:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
