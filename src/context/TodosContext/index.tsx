@@ -37,8 +37,8 @@ export const TodosContextProvider: React.FC<{}> = ({ children }) => {
 
   const removeTodo = (id: string) => setTodos((todos.filter(todo => todo.id !== id)));
 
-  const setAsCompleted = (id: string) => setTodos(todos.map(todo => {
-    if (todo.id === id) return { ...todo, completed: true };
+  const toggleCompleted = (id: string) => setTodos(todos.map(todo => {
+    if (todo.id === id) return { ...todo, completed: !todo.completed };
     return todo;
   }))
 
@@ -48,7 +48,7 @@ export const TodosContextProvider: React.FC<{}> = ({ children }) => {
       makeTodo,
       updatedTodo,
       removeTodo,
-      setAsCompleted
+      toggleCompleted
     }}>
       {children}
     </TodosContext.Provider>

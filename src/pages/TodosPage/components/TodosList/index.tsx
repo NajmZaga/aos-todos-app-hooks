@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Alert, Badge, Button, ListGroup, ListGroupItem } from 'reactstrap';
 import { ITodo } from '../../../../context/TodosContext';
 
 interface ITodosListProps {
   listTodos: ITodo[];
   onRemoveTodo: (id: string) => void;
+  onToggleComplete: (id: string) => void;
 };
 
-export const TodosList: React.FC<ITodosListProps> = ({ listTodos, onRemoveTodo }) => {
+export const TodosList: React.FC<ITodosListProps> = ({ listTodos, onRemoveTodo, onToggleComplete }) => {
+
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen);
 
   return (
     <div className="todos-list">
@@ -21,9 +26,11 @@ export const TodosList: React.FC<ITodosListProps> = ({ listTodos, onRemoveTodo }
                   {todo.title}
                 </strong>
               : {todo.description} - <Button color="link" onClick={() => onRemoveTodo(todo.id)}>Supprimer</Button>
-                <Badge color={todo.completed ? 'success' : 'danger'}>
-                  {todo.completed ? 'Complétée' : 'Non complétée'}
-                </Badge>
+                <Button className="todo-status" color="link" onClick={() => onToggleComplete(todo.id)}>
+                  <Badge title={`Marquer comme ${todo.completed ? 'Non' : ''} complétée`} color={todo.completed ? 'success' : 'danger'}>
+                    {todo.completed ? 'Complétée' : 'Non complétée'}
+                  </Badge>
+                </Button>
               </ListGroupItem>
             ))
             :

@@ -8,7 +8,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.todos-page .badge {
+.todos-page .todo-status {
   float: right;
-  margin-top: 10px;
 }

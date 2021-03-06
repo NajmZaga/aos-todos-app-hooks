@@ -14,12 +14,12 @@ interface ITodosContext {
   makeTodo: (todo: INewTodo) => void;
   updatedTodo: (todo: ITodo) => void;
   removeTodo: (id: string) => void;
-  setAsCompleted: (id: string) => void;
+  toggleCompleted: (id: string) => void;
 }
 
 export const TodosPage: React.FC<ITodosPageProps> = () => {
 
-  const { todos, makeTodo, updatedTodo, removeTodo, setAsCompleted }: ITodosContext = useContext(TodosContext);
+  const { todos, makeTodo, updatedTodo, removeTodo, toggleCompleted }: ITodosContext = useContext(TodosContext);
 
   return (
     <div className="todos-page">
@@ -28,6 +28,7 @@ export const TodosPage: React.FC<ITodosPageProps> = () => {
         <TodosList
           listTodos={todos}
           onRemoveTodo={removeTodo}
+          onToggleComplete={toggleCompleted}
         />
         <AddTodo onSaveTodo={makeTodo} />
       </Container>
