@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 
 interface IAddTodoProps {
-  onSaveTodo: (todo: ITodo) => void;
+  onSaveTodo: (todo: INewTodo) => void;
 };
 
-export interface ITodo {
+export interface INewTodo {
   title: string;
   description: string;
 };
 
 export const AddTodo: React.FC<IAddTodoProps> = ({ onSaveTodo }) => {
 
-  const [todo, setTodo] = useState<ITodo>({
+  const [todo, setTodo] = useState<INewTodo>({
     title: '',
     description: '',
   });
@@ -25,6 +25,10 @@ export const AddTodo: React.FC<IAddTodoProps> = ({ onSaveTodo }) => {
   const handleSaveTodo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSaveTodo(todo);
+    setTodo({
+      title: '',
+      description: '',
+    });
   };
 
   return (
@@ -35,13 +39,13 @@ export const AddTodo: React.FC<IAddTodoProps> = ({ onSaveTodo }) => {
           <Col md="4">
             <FormGroup>
               <Label for="exampleEmail">Nom de la tâche</Label>
-              <Input type="text" name="title" onChange={handleTodoChange} />
+              <Input type="text" name="title" value={todo.title} onChange={handleTodoChange} />
             </FormGroup>
           </Col>
           <Col md="4">
             <FormGroup>
               <Label for="exampleEmail">Description de la tâche en une ligne</Label>
-              <Input type="text" name="description" onChange={handleTodoChange} />
+              <Input type="text" name="description" value={todo.description} onChange={handleTodoChange} />
             </FormGroup>
           </Col>
           <Col md="4">

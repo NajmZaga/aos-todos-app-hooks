@@ -1,29 +1,36 @@
 import React from 'react';
-import { Badge, Button, ListGroup, ListGroupItem } from 'reactstrap';
+import { Alert, Badge, Button, ListGroup, ListGroupItem } from 'reactstrap';
+import { ITodo } from '../../../../context/TodosContext';
 
 interface ITodosListProps {
-
+  listTodos: ITodo[];
+  onRemoveTodo: (id: string) => void;
 };
 
-export const TodosList: React.FC<ITodosListProps> = () => {
+export const TodosList: React.FC<ITodosListProps> = ({ listTodos, onRemoveTodo }) => {
+
   return (
     <div className="todos-list">
       <h2>Liste des tâches</h2>
       <ListGroup>
-        <ListGroupItem>
-          <strong>
-            Todo title
-          </strong>
-          : A toute l'équipe - <Button color="link">link</Button>
-          <Badge color="danger">Non complete</Badge>
-        </ListGroupItem>
-        <ListGroupItem>
-          <strong>
-            Todo title
-          </strong>
-          : A toute l'équipe - <Button color="link">link</Button>
-          <Badge color="danger">Non complete</Badge>
-        </ListGroupItem>
+        {
+          listTodos.length ?
+            listTodos.map(todo => (
+              <ListGroupItem key={todo.id}>
+                <strong>
+                  {todo.title}
+                </strong>
+              : {todo.description} - <Button color="link" onClick={() => onRemoveTodo(todo.id)}>Supprimer</Button>
+                <Badge color={todo.completed ? 'success' : 'danger'}>
+                  {todo.completed ? 'Complétée' : 'Non complétée'}
+                </Badge>
+              </ListGroupItem>
+            ))
+            :
+            <Alert color="secondary">
+              La liste est vide
+          </Alert>
+        }
       </ListGroup>
     </div>
   );
