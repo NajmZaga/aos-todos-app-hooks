@@ -27,6 +27,7 @@ export const TodosPage: React.FC<ITodosPageProps> = () => {
       <Container>
         <TodosList
           listTodos={todos}
+          onUpdateTodo={updatedTodo}
           onRemoveTodo={removeTodo}
           onToggleComplete={toggleCompleted}
         />

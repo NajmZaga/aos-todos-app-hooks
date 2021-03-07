@@ -50,7 +50,7 @@ export const AddTodo: React.FC<IAddTodoProps> = ({ onSaveTodo }) => {
           </Col>
           <Col md="4">
             <FormGroup>
-              <Button color="primary">Ajouter la tâche</Button>
+              <Button className="align-btn" color="primary">Ajouter la tâche</Button>
             </FormGroup>
           </Col>
         </Row>
