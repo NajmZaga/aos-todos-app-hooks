@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Alert, Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { AppNavbar } from '../../components/AppNavbar';
 
 interface ILoginPageProps {
@@ -19,6 +19,8 @@ export const LoginPage: React.FC<ILoginPageProps & RouteComponentProps> = ({ his
     password: ''
   });
 
+  const [hasLoginError, setLoginError] = useState(false);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => setAuthState({
     ...authState,
     [event.target.name]: event.target.value,
@@ -27,7 +29,10 @@ export const LoginPage: React.FC<ILoginPageProps & RouteComponentProps> = ({ his
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (authState.email === 'test@test.com' && authState.password === 'test') {
+      setLoginError(false);
       history.push('/');
+    } else {
+      setLoginError(true);
     }
   };
 
@@ -53,6 +58,17 @@ export const LoginPage: React.FC<ILoginPageProps & RouteComponentProps> = ({ his
                 <Button color="primary">Soumettre</Button>
               </FormGroup>
             </Form>
+            {
+              hasLoginError && (
+                <Alert color="danger">
+                  <h5>Tentative de connexion</h5>
+                  <ul>
+                    <li>L'email et le mot de passe ne correspondent pas.</li>
+                    <li>Le compte n'existe pas.</li>
+                  </ul>
+                </Alert>
+              )
+            }
           </Col>
         </Row>
       </Container>
