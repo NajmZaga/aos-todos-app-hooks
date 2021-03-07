@@ -1,46 +1,35 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AOS - Todos App
 
-## Available Scripts
+## Documentation
 
-In the project directory, you can run:
+Afin de faire fonctionner l'application sur votre machine, vous devez suivre les étapes ci-dessous:
 
-### `yarn start`
+  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Cloner l'application
+Ouvrez votre Terminal / CMD et clonez le projet:
+#### SSH
+    $ git@github.com:NajmZaga/aos-todos-app-hooks.git
+#### HTTPS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    $ https://github.com/NajmZaga/aos-todos-app-hooks.git
+### Installation des dépendances
+Une fois le clonage terminé, cd dans le répertoire du projet et exécutez l'une des commandes suivantes pour installer les dépendances du projet:
+#### NPM
 
-### `yarn test`
+    $ npm install
+#### Yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    $ yarn
+### Lancement de l'application
+Une fois l'installation terminée, la dernière étape vient. Exécutez l'une des commandes suivantes
+#### NPM
 
-### `yarn build`
+    $ npm start
+#### Yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    $ yarn start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Note
+Le projet démarrera automatiquement dans un nouvel onglet de votre navigateur par défaut.

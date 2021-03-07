@@ -78,7 +78,7 @@ export const TodosList: React.FC<ITodosListProps> = ({ listTodos, onUpdateTodo, 
                         <Col md="4">
                           <FormGroup className="align-btn">
                             <Button color="success">Modifier la tâche</Button>
-                            {'  '}
+                            {' '}
                             <Button color="danger" onClick={handleCancelEditing}>Annuler</Button>
                           </FormGroup>
                         </Col>
