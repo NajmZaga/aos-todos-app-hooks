@@ -16,9 +16,10 @@ import {
 
 interface IAppNavbarProps {
   isAuthorized?: boolean;
+  onLogout?: () => void;
 }
 
-export const AppNavbar: React.FC<IAppNavbarProps> = ({ isAuthorized }) => {
+export const AppNavbar: React.FC<IAppNavbarProps> = ({ isAuthorized, onLogout }) => {
 
   return (
     <Navbar color="light" light expand="md">
@@ -35,7 +36,7 @@ export const AppNavbar: React.FC<IAppNavbarProps> = ({ isAuthorized }) => {
           {
             isAuthorized && (
               <NavItem>
-                <NavLink href="#">Déconnexion</NavLink>
+                <NavLink href="#" onClick={onLogout}>Déconnexion</NavLink>
               </NavItem>
             )
           }
