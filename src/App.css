@@ -1,0 +1,17 @@
+.navbar {
+  margin-bottom: 50px;
+}
+
+.todos-page .todos-list {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.todos-page .todo-status {
+  float: right;
+}
+
+.align-btn {
+  margin-top: 30px;
+}
